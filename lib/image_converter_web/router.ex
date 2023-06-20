@@ -17,7 +17,7 @@ defmodule ImageConverterWeb.Router do
   scope "/", ImageConverterWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    live "/", ImageConverterLive
   end
 
   # Other scopes may use custom stacks.
