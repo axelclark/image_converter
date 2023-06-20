@@ -17,10 +17,10 @@ defmodule ImageConverterWeb.ImageConverterLive do
     </.simple_form>
 
     <.header class="mt-12">Results:</.header>
-    <div class="mt-6 p-3 w-full border rounded-lg text-zinc-900">
+    <div class="mt-6 p-3 w-full border rounded-lg">
       <ul>
         <%= for image_tag <- @image_tags do %>
-          <li><%= image_tag %></li>
+          <li class="text-sm text-zinc-900"><%= image_tag %></li>
         <% end %>
       </ul>
     </div>
