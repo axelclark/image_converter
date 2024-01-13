@@ -7,20 +7,17 @@ defmodule ImageConverter do
   if it comes from the database, an external API or others.
   """
   def generate_image_tags(input) do
-    inputs = parse_input(input)
-
-    inputs
+    input
+    |> String.trim()
+    |> parse_input()
     |> Enum.map(&generate_image_tag/1)
-    |> Enum.filter(&String.starts_with?(&1, "<img"))
   end
 
   defp parse_input(input) do
     String.split(input, "\n")
   end
 
-  defp generate_image_tag(""), do: ""
-
-  defp generate_image_tag(markdown) do
+  defp generate_image_tag("![" <> _rest = markdown) do
     image_tag_start = "!["
     alt_text_end = "]("
     url_end = ")"
@@ -29,6 +26,8 @@ defmodule ImageConverter do
     [alt_text, remaining] = String.split(remaining, alt_text_end, parts: 2)
     [url, _] = String.split(remaining, url_end, parts: 2)
 
-    "<img src=\"#{url}\" alt=\"#{alt_text}\" width=\"300\">"
+    "<img src=\"#{url}\" alt=\"#{alt_text}\" width=\"300\"><br/>"
   end
+
+  defp generate_image_tag(line), do: line
 end
