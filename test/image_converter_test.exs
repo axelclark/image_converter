@@ -37,7 +37,6 @@ defmodule ImageConverterTest do
 
     assert result == [
              "### Test",
-             "",
              "<img src=\"https://example.com/image2.jpg\" alt=\"alt text2\" width=\"300\"><br/>"
            ]
   end

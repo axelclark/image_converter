@@ -16,14 +16,16 @@ defmodule ImageConverterWeb.ImageConverterLive do
       </:actions>
     </.simple_form>
 
-    <.header class="mt-12">Results:</.header>
+    <div class="mt-12">
+      <.header>Results:</.header>
+    </div>
     <div id="results" class="mt-6 p-3 w-full border rounded-lg">
       <%= for image_tag <- @image_tags do %>
         <p class="text-sm text-zinc-900"><%= image_tag %></p>
       <% end %>
     </div>
     <.button phx-click={JS.dispatch("image_converter:clipcopy", to: "#results")} class="mt-4">
-      Copy content
+      Copy
     </.button>
     """
   end

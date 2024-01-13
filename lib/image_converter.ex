@@ -14,7 +14,7 @@ defmodule ImageConverter do
   end
 
   defp parse_input(input) do
-    String.split(input, "\n")
+    String.split(input, "\n", trim: true)
   end
 
   defp generate_image_tag("![" <> _rest = markdown) do
