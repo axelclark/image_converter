@@ -13,7 +13,7 @@ defmodule ImageConverterWeb.ImageConverterLiveTest do
 
     assert has_element?(
              view,
-             "pre",
+             "p",
              "<img src=\"https://example.com/image.jpg\" alt=\"alt text\" width=\"300\">"
            )
   end
